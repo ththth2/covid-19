@@ -6,8 +6,12 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-12 col-lg-6 h-50 py-2"><canvas id="myChart"></canvas></div>
-      <div class="col-sm-12 col-lg-6 h-50 py-2"><canvas id="myChart2"></canvas></div>
+      <div class="col-sm-12 col-lg-6 h-50 py-2">
+        <canvas id="myChart"></canvas>
+      </div>
+      <div class="col-sm-12 col-lg-6 h-50 py-2">
+        <canvas id="myChart2"></canvas>
+      </div>
     </div>
   </div>
 </template>
@@ -41,14 +45,10 @@ export default {
     const casessum = datasum["cases"];
     const deathssum = datasum["deaths"];
     const recoveredsum = datasum["recovered"];
-    const arrdatasum = { casessum, deathssum, recoveredsum };
-    // console.log(arrdatasum);
 
     const dates = this.chartData.map((d) => d.date);
     const totals = this.chartData.map((d) => d.total);
     const deaths = this.chartData.map((d) => d.deaths);
-    // console.log(dates);
-    // const ctx = document.getElementById('myChart');
 
     const labels = dates;
     const data = {
@@ -60,7 +60,7 @@ export default {
           false: false,
           tension: 0.1,
           responsive: true,
-          backgroundColor:   "#FFF66E",
+          backgroundColor: "#FFF66E",
           borderColor: "rgb(255, 205, 86)",
         },
       ],
@@ -73,8 +73,8 @@ export default {
           data: deaths,
           false: false,
           tension: 0.1,
-          backgroundColor:  "#F75F69",
-          borderColor: '#AF0000',
+          backgroundColor: "#F75F69",
+          borderColor: "#AF0000",
         },
       ],
     };
@@ -85,16 +85,8 @@ export default {
           label: "Cases",
           data: [casessum, deathssum, recoveredsum],
           fill: false,
-          backgroundColor: [
-            "#FFF66E",
-            "#F75F69",
-            "#27DE64",
-          ],
-          borderColor: [
-          "rgb(255, 205, 86)",
-          '#AF0000',
-          '#268E37'
-          ],
+          backgroundColor: ["#FFF66E", "#F75F69", "#27DE64"],
+          borderColor: ["rgb(255, 205, 86)", "#AF0000", "#268E37"],
           tension: 0.1,
         },
       ],
@@ -114,7 +106,6 @@ export default {
       data: data3,
     });
     myChart2;
-    
   },
 };
 </script>
